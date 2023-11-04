@@ -1,0 +1,60 @@
+defaultTasks 'hello'
+
+logger.info ">>> build.gradle --> This is executed during the configuration phase"
+
+task hi
+
+project.hi.doLast {
+    println "hi"
+}
+
+task hello {
+    description = 'Log the name of the Task'
+    group = "Welcome"
+
+    doFirst {
+        println "My name is: $name and this is my 1st defined Action"
+    }
+
+    doLast {
+        println "My name is: $name and this is my 2st defined Action"
+    }
+
+}
+
+println hello.description
+println hello.group
+// 자동으로 Gradle 빌드하는 구문을 수정해야 한다.
+
+
+hello.doLast {
+    println "My name is: $name and this is my 3st defined Action"
+}
+
+hello.doLast {
+    println "My name is: $name and this is my 4st defined Action"
+}
+
+hello.doFirst {
+    println "My name is: $name and this is my 5st defined Action"
+}
+
+
+task hello2 {
+    description = "Log the name of the Task"
+    group = "Welcome"
+}
+
+hello2.doFirst {
+    description = "Log the name of the Task"
+    group = "welcome"
+}
+
+hello2.doFirst {
+    println "My name is: $name and this is my 1st defined Action"
+}.doLast {
+    println "My name is: $name and this is my 2nd defined Action"
+}
+
+
+

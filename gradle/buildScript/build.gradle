@@ -1,0 +1,65 @@
+// 6 key <Interfaces> to work with
+// Gradle API - Documentation for Interfaces/Classes and Methods
+
+// Script <Interface>
+// Project <Interface>
+// Gradle <Interface>
+// Settings <Interface>
+// Task <Interface> <=> Action <Interface>
+
+
+//// ### 1
+//logger.info "Hello !"
+//// gradle init -i 항목 실행
+//apply {
+//    println "Hello again!!"
+//}
+
+// Gradle Lifecycle
+// 3 단계가있다.
+
+// 1. Initialization -> init.gradle + other.gradle, settings.gradle
+// 2. Configuration -> build.gradle
+// 3. Execution -> build.gradle
+
+// Single Project, Multi Project 로 구성할수 있다.
+
+// Initialization
+// Init.gradle + <xxx>.gradle
+// settings.gradle 멀티 프로젝트를 포함하는데 사용된다.
+
+// 2. Configuration, Execution
+
+//println "build.gradle --> This is executed during the configuration phase"
+// 빌드 스크립트를 사용가능하다. other.gradle 구문에
+
+// build.gradle = Script<Interface>, Properties, Method -> (delegates to)
+// -> Project<Interface>, Properties, Method
+
+// settings.gradle = Script<Interface> -> (delegate to) -> Settings<Interface> -> (collection of) -> other.gradle
+
+// init.gradle = Script<Interface> -> (delegate to) -> Gradle<interface>
+
+// build.gradle -> (Configuration Phase) delegate to -> Project
+// settings.gradle -> (Initialization Phase) delegates to -> Settings
+// init.gradle -> (Initialization Phase) delegates to -> Gradle
+
+// ### 2
+//logger.info ">>> ${project.gradle.gradleVersion}"
+//logger.info ">>> ${project.gradle.gradleHomeDir}"
+//logger.info ">>> ${project.gradle.gradleUserHomeDir}"
+//logger.info ">>> ${gradle.gradleVersion}"
+//logger.info ">>> ${gradle.gradleHomeDir}"
+//logger.info ">>> ${gradle.gradleUserHomeDir}"
+//logger.info ">>> $gradle.gradleVersion"
+
+//logger.info ">>> build.gradle $project.buildFile"
+//logger.info ">>> build.gradle: ${relativePath(buildFile)}"
+
+
+
+
+
+
+
+

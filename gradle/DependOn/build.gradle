@@ -1,0 +1,98 @@
+////defaultTasks 'doStartProcess', 'doStep2'
+//defaultTasks 'doFinished'
+//
+//println ">>> build.gradle --> This is executed during the configuration phase"
+//
+//
+//task doStartProcess {
+//    doLast {
+//        println "$name - Now starting the process - OK!"
+//    }
+//}
+//
+//task doStep2 {
+//    doLast {
+//        println "$name - Performed OK!"
+//    }
+//
+//}
+//
+//task doSomethingInTheMiddle(dependsOn: 'doStartProcess') {
+//    doLast {
+//        logger.info "$name - Performed the middle step - OK!"
+//    }
+//}
+//
+////task doFinished (dependsOn: 'doStep2') {
+//task doFinished(dependsOn: ['doSomethingInTheMiddle', 'doStep2']) {
+//
+//    doLast {
+//        println "$name - Done - OK!"
+//    }
+//
+//}
+//
+//// depend 시 결정하는 방법은 그래프 방법으로 진행이 된다.
+//// gradle task [task name]
+//
+//println ">>> ${project.tasks.findAll {task-> task.name.startsWith('doStep2')}}"
+//
+//// 아래와 같이 사용도 가능
+//doSomethingInTheMiddle.dependsOn doStartProcess
+//
+//// Configuration Phase
+//// Tasks Dependencies
+//// Direct acyclic graph
+//
+//
+//project.gradle.taskGraph.whenReady {
+//    println ">>> $project.gradle.taskGraph.allTasks"
+//
+//}
+//
+//
+//project.gradle.taskGraph.whenReady { taskGraph ->
+//    if(taskGraph.hasTask(doStep2)){ // 이렇게도 사용가능
+//        println "doStep task is existed "
+//    }
+//}
+//
+//project.gradle.taskGraph.beforeTask { task ->
+//    println "++ Before task $task.name"
+//
+//}
+//
+//project.gradle.taskGraph.afterTask { task ->
+//    println "++ After task $task.name"
+//}
+//
+//
+//
+//
+//
+
+//
+
+task D {
+    doLast {
+        println "$name - Now starting the process - OK!"
+    }
+}
+
+task C {
+    doLast {
+        println "$name - Now starting the process - OK!"
+    }
+}
+
+task B (dependsOn: D){
+    doLast {
+        println "$name - Now starting the process - OK!"
+    }
+}
+
+task A (dependsOn: [B, C]){
+    doLast {
+        println "$name - Now starting the process - OK!"
+    }
+}

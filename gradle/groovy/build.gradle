@@ -1,0 +1,200 @@
+
+
+//plugins {
+//    id 'java'
+//}
+//
+//group 'org.example'
+//version '1.0-SNAPSHOT'
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+//}
+//
+//test {
+//    useJUnitPlatform()
+//}
+
+// ### 1
+//defaultTasks 'hello'
+//task('hello').doLast{
+//        println 'Hello World'
+//}
+//
+//println 'Hello world2'
+//
+//System.out.println "Hello World Java"
+
+/// ### 2
+//import java.text.SimpleDateFormat
+//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'TT'HH:mm:ss'Z'")
+//sdf.setTimeZone(TimeZone.getTimeZone("UTC"))
+//
+//System.out.println "Hello World" + sdf.format(new Date())
+//System.out.println("Hello World" + sdf.format(new Date()))
+
+
+// ### 3
+// inline code example
+//sayHelloWorld()
+//
+//void sayHelloWorld() {
+//
+//    println "Hello World!"
+//}
+
+// ### 4
+// 마지막 인자가 자동 리턴이 된디.
+//int doubleIt(int i) {
+//    println(i)
+//    i*3
+//}
+//
+//println doubleIt(2)
+
+
+// ### 5
+// gradle은 스크립트 언어라 아래서 호출이 가능하다.
+// Types
+// def 은 Object 형태이다.
+// def == Object
+// Object date = new Date();
+// def date = new Date();
+//int doubleIt(int i) {
+//    i*3
+//}
+//
+//println doubleIt(2)
+// 컴파일 언어랑 다르가 런타임시 에러가 발생한다.
+
+// ### 6
+//def s3 =  """
+//    String 입니다.
+//"""
+//
+//println s3
+
+// ### 7
+// String interpolation
+//def x = 4
+//println "x is $x"
+//def myCourse = "gradle"
+//println "I'm traing in: ${myCourse.toUpperCase()}"
+
+// ### 8
+// Properties를 사용하면 스크립트 언어라 자동으로 getter/setter를 생성 해준다.
+//class Person {
+//
+//    String name;
+//    Integer age;
+//
+//    Person(name, age) {
+//        this.name = name
+//        this.age = age
+//    }
+//
+//}
+//def p1 = new Person("Fred", 35)
+//println p1.age
+//p1.age = 36
+//println p1.age
+
+// DSL 언어라서 HashMap 항목에서도 properties 항목으로 접근이 가능하다.
+//Map m = new HashMap()
+//
+//m.put("foo", "Fred")
+//println m.get("foo")
+//
+//m.foo = "bill"
+//m.goo = "goo"
+//
+//println m.foo
+//println m.goo
+
+
+// ### 9
+// Closures
+//def echoIt = {
+//}
+//println echoIt
+
+// 클러져는 메소드와 매우 유사하다.
+// ### 10
+//def echoIt = {
+//    println "Hello World"
+//}
+//echoIt()
+
+// ### 11
+//def echoIt = { parameter ->
+//    println parameter
+//}
+//echoIt("Hello World")
+
+// ### 12
+//def echoIt = { String parameter ->
+//    println parameter
+//}
+//echoIt("Hello World")
+
+// ### 13
+//def echoIt = {
+//    println it
+//}
+//echoIt("Hello World")
+
+// ### 14
+//def oneArgMethod(closure) {
+//    closure() * 2
+//}
+//println oneArgMethod {4}
+
+// ### 15
+//def twoArgMethod(factor, closure) {
+//    closure() * factor
+//}
+//println twoArgMethod(3, {10})
+
+// ### 16
+//def oneArgMethod(closure) {
+//    closure() * 2
+//}
+//println oneArgMethod {4}
+//
+//def i = oneArgMethod {
+//    def y = 3
+//    y * 2
+//}
+//
+//assert i != 6
+
+// ### 17
+// common uses for closure ... iterators !
+//for(int j in [1,2,3]) {
+//    println j
+//}
+//
+//[1,2,3].each {
+//    println it
+//}
+
+// Closure resolution
+//def theName = "John"
+//
+//
+//def sayName = {
+//    println theName
+//}
+//
+//theName = "Bill"
+//
+//sayName()
+// ### Closure -> Context (Fred)
+// ### Closure -> Context (Bill)
+
+// 그루비 문법

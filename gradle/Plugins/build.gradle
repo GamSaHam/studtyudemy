@@ -1,0 +1,25 @@
+// Plugins으로 인해 자바 소스도 실행 가능하다.
+
+// Gradle(Core) -> java, java-library, Other plugins -> build.gradle
+
+// build.gradle
+// plugins {
+//  id 'java'
+// }
+
+// Plugins , java - apply -> build.gradle
+// java - tasks -> clean complie, Java, testClasses, jar all dependsOn
+//
+
+
+
+// Convension 항목 그레들 프로젝트가 생성된다.
+// src/main/java
+// src/main/resources
+// src/test/java
+// src/test/resources
+// src/sourceSet/java
+// src/sourceSet/resources
+
+
+// build 테스크, clean 테스트, DSL 도메인 특정 언어에 살펴볼것이다.

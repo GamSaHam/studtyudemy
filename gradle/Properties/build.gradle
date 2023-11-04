@@ -1,0 +1,45 @@
+// What do we mean by 'property'
+// 1. Gradle has build in 'properties' on its API Objects;
+// Can be predefined values;
+// e.g.gradleVersion, gradleHomeDir
+// or Objects, like 'logger' which is a property on the;
+// Script<interface> ---> getLogger()
+// Returns the logger for the script. You can use this in your
+// script to write log messages
+
+// Script<Interface>
+
+// Create & Ad our user defined properties
+// onto Objects in Gradle API
+
+logger.info """
+Welcome to Gradle $gradle.gradleVersion - http://www.gradle.org
+Gradle home is set to : $gradle.gradleHomeDir
+Gradle user directory is set to: $gradle.gradleUserHomeDir
+
+Base directory: $projectDir
+Running script ${relativePath(buildFile)}
+"""
+
+logger.info "has property: ${project.gradle.hasProperty('gradleVersion')}"
+logger.info "has property: ${hasProperty('projectDir')}"
+
+// gradle.properties 항목으로 전역으로 지역적으로 관리가 가능하다.
+if(project.hasProperty('gradlePropertiesProp')) {
+    logger.info "The property file value is $gradlePropertiesProp"
+}else {
+    logger.info "Oops! gradlePropertiesProp can't be found"
+}
+
+// ExtraPropertiesExtension
+project.ext.sayHello = "Hello!"
+
+logger.info sayHello
+
+if(project.hasProperty("sayHello")) {
+    logger.info sayHello
+}else {
+    logger.info "Unable to say Hello!"
+}
+
+
